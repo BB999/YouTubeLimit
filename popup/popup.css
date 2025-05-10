@@ -1,0 +1,229 @@
+/* ポップアップ全体のスタイル */
+body {
+  margin: 0;
+  padding-top: 10px; /* ガイドライン10: 上に少しスペース */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #ffffff; /* ガイドライン11: bg-white */
+  color: #1f2937; /* ガイドライン21: テキスト色 */
+  min-width: 300px; /* ポップアップの最小幅 */
+  max-width: 400px; /* ポップアップの最大幅 */
+  overflow-y: auto; /* コンテンツが多い場合にスクロール可能に */
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f2937; /* ガイドライン11: dark:bg-gray-800 */
+    color: #ffffff; /* ガイドライン21: テキスト色 */
+  }
+}
+
+/* shadcn/ui Card コンポーネントのスタイルを想定 */
+.card {
+  background-color: #ffffff; /* ガイドライン11: bg-card */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 0 auto; /* 中央寄せ */
+  max-width: 380px; /* カードの最大幅 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: #1f2937; /* ガイドライン11: dark:bg-card */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.card-header {
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1f2937; /* テキスト色 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-title {
+    color: #ffffff; /* テキスト色 */
+  }
+}
+
+.card-description {
+  font-size: 0.9em;
+  color: #6b7280; /* gray-500相当 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-description {
+    color: #9ca3af; /* gray-400相当 */
+  }
+}
+
+.card-content > div {
+  margin-bottom: 15px;
+}
+
+.card-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #1f2937; /* テキスト色 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-content label {
+    color: #ffffff; /* テキスト色 */
+  }
+}
+
+
+/* 残り時間表示スタイル */
+.time-display {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #e5e7eb; /* gray-200相当 */
+  color: #22c55e; /* ガイドライン19: 多い時の色 (green-500) */
+  transition: color 0.3s ease-in-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  .time-display {
+    background-color: #374151; /* gray-700相当 */
+  }
+}
+
+/* 残り時間が少ない時の色 */
+.time-display.low {
+  color: #ef4444; /* ガイドライン19: 少ない時の色 (red-500) */
+}
+
+/* 残り時間が非常に少ない時のアニメーション */
+.time-display.very-low {
+  color: #ef4444; /* red-500 */
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+
+/* 設定フォームスタイル */
+.settings-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-section input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db; /* gray-300相当 */
+  border-radius: 4px;
+  box-sizing: border-box; /* パディングを幅に含める */
+  background-color: #ffffff; /* 背景色 */
+  color: #1f2937; /* テキスト色 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .settings-section input[type="number"] {
+    border-color: #4b5563; /* gray-600相当 */
+    background-color: #374151; /* gray-700相当 */
+    color: #ffffff; /* テキスト色 */
+  }
+}
+
+
+/* ボタン スタイル */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  background-color: #3b82f6; /* ガイドライン19: blue-500 */
+  color: #ffffff; /* ガイドライン19: white */
+}
+
+button:hover {
+  background-color: #2563eb; /* blue-600相当 */
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 特定のボタンのスタイル調整 */
+.save-button {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.controls-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.toggle-button {
+  flex-grow: 1;
+}
+
+
+/* 統計情報スタイル */
+.stats-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb; /* gray-200相当 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .stats-section {
+    border-top-color: #4b5563; /* gray-600相当 */
+  }
+}
+
+.stats-section .total-time {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937; /* テキスト色 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .stats-section .total-time {
+    color: #ffffff; /* テキスト色 */
+  }
+}
+
+/* レスポンシブ対応の微調整 */
+@media (max-width: 320px) {
+  .card {
+    padding: 15px;
+  }
+  .card-title {
+    font-size: 1.3em;
+  }
+  .time-display {
+    font-size: 1.8em;
+  }
+  button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+};

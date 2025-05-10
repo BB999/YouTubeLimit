@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube Time Limiter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Time Limiter</h1>
+
+    <div class="status-section">
+      <p>残り視聴可能時間:</p>
+      <h2 id="time-left">--:--</h2>
+      <p>今日の視聴時間: <span id="time-today">00:00</span></p>
+    </div>
+
+    <div class="controls-section">
+      <button id="toggle-timer-button">一時停止</button>
+    </div>
+
+    <div class="settings-section">
+      <form id="limit-form">
+        <label for="limit-input">日次制限時間 (分):</label>
+        <input type="number" id="limit-input" min="1" value="60">
+        <button type="submit" id="set-limit-button">設定</button>
+      </form>
+    </div>
+
+    <div class="info-section">
+      <p>設定は毎日0時にリセットされます。</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
